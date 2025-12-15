@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 const Card = ({title, rating}) =>{
+  const [hasLiked, setHasLiked] = useState(false);
+
   return(
     <div style={{
       border: '1px solid #4b5362',
@@ -15,11 +17,15 @@ const Card = ({title, rating}) =>{
     }}>
       <h2>{title}</h2>
       <p>Rating: {rating}</p>
+      <button onClick={() => setHasLiked(!hasLiked)}>
+        {hasLiked ? '💖': '🤍'}
+      </button>
     </div>
   )
 }
 
 const App = () => {
+  
   return(
     <div className='card-container'>
       <Card title="Three idiots" rating={10} isCool={true} actors={[{name: "Amir Khan"}]}/>
