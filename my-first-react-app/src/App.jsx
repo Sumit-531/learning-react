@@ -1,10 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 const Card = ({title, rating}) =>{
+  const [count, setCount] = useState(0);
   const [hasLiked, setHasLiked] = useState(false);
+
+  useEffect(() => {
+    console.log(`${title} has been liked: ${hasLiked}`);
+  }, [hasLiked]);
+
+  useEffect(() => {
+    console.log('CARD RENDERED');
+  }, []);
 
   return(
     <div style={{
@@ -14,8 +21,8 @@ const Card = ({title, rating}) =>{
       backgroundColor: '#31363f',
       borderRadius: '10px',
       minHeight: '100px',
-    }}>
-      <h2>{title}</h2>
+    }} onClick={() => setCount(count + 1)}>
+      <h2>{title} <br/> {count || null}</h2>
       <p>Rating: {rating}</p>
       <button onClick={() => setHasLiked(!hasLiked)}>
         {hasLiked ? '💖': '🤍'}
