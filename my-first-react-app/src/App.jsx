@@ -14,9 +14,7 @@ const Card = ({title, rating}) =>{
 
 const App = () => {
   return(
-    <div>
-      <h2>Functional Arrow Component</h2>
-
+    <div className='card-container'>
       <Card title="Three idiots" rating={10} isCool={true} actors={[{name: "Amir Khan"}]}/>
       <Card title="Inception" rating={10}/>
       <Card title="A silent voice" rating={10}/>
